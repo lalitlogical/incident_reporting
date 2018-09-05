@@ -1,0 +1,82 @@
+<%= form_with(model: incident, local: true) do |form| %>
+  <% if incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% incident.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'detailed_page', true  %>
+  <div class="form-group">
+    <%= form.label :incident_type %>
+    <%= select_tag "incident[incident_type][]", options_for_select(options_for_incident_type), { multiple: true, class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Describe Issue/Incident" %>
+    <%= form.text_area :incident, id: :incident_incident, rows: 10, class: 'form-control' %>
+  </div>
+
+  <p> Your details (email/ phone) Or anonymous reporting </p>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :incident_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email_or_phone %>
+    <%= form.text_field :email_or_phone, id: :incident_email_or_phone, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :role %>
+    <%= form.select :role, options_for_role, :prompt => 'select role' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :people_involved %>
+    <%= form.text_area :people_involved, id: :incident_people_involved, class: 'form-control', placeholder: 'Name and other details of people involved (student, teacher, staff, parent,
+grade level)' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observers %>
+    <%= form.text_area :observers, id: :incident_observers, class: 'form-control', rows: 5, placeholder: "Name and details (placeholder text)" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observed_at %>
+    <%= form.datetime_select :observed_at, id: :incident_observed_at, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location %>
+    <%= form.select :location, options_for_location, :prompt => 'select or provide details in other' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location_details %>
+    <%= form.text_area :location_details, id: :incident_location_details, class: 'form-control', rows: 5 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :incident_description, class: 'form-control', rows: 5 %>
+  </div>
+
+  <%= form.fields_for :incident_attachments, IncidentAttachment.new do |ff| %>
+    <div class="form-group">
+      <%= ff.label "Upload Pictures, videos or files if any" %><br>
+      <%= ff.file_field :avatar, :multiple => true, name: "incident[incident_attachments_attributes][][avatar]", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Submit", class: 'btn btn-success' %>
+  </div>
+<% end %>

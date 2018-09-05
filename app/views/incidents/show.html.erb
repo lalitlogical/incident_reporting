@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>School name:</strong>
+  <%= @incident.school_name %>
+</p>
+
+<p>
+  <strong>Incident type:</strong>
+  <%= @incident.incident_type %>
+</p>
+
+<p>
+  <strong>Incident:</strong>
+  <%= @incident.incident %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @incident.name %>
+</p>
+
+<p>
+  <strong>Email or phone:</strong>
+  <%= @incident.email_or_phone %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @incident.role %>
+</p>
+
+<p>
+  <strong>People involved:</strong>
+  <%= @incident.people_involved %>
+</p>
+
+<p>
+  <strong>Observers:</strong>
+  <%= @incident.observers %>
+</p>
+
+<p>
+  <strong>Observed at:</strong>
+  <%= @incident.observed_at %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @incident.location %>
+</p>
+
+<p>
+  <strong>Location details:</strong>
+  <%= @incident.location_details %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @incident.description %>
+</p>
+
+<%= link_to 'Edit', edit_incident_path(@incident) %> |
+<%= link_to 'Back', incidents_path %>

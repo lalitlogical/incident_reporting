@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Incident:</strong>
+  <%= @incident_attachment.incident_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @incident_attachment.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_incident_attachment_path(@incident_attachment) %> |
+<%= link_to 'Back', incident_attachments_path %>

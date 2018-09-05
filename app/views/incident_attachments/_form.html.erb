@@ -1,0 +1,27 @@
+<%= form_with(model: incident_attachment, local: true) do |form| %>
+  <% if incident_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(incident_attachment.errors.count, "error") %> prohibited this incident_attachment from being saved:</h2>
+
+      <ul>
+      <% incident_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :incident_id %>
+    <%= form.number_field :incident_id, id: :incident_attachment_incident_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.text_field :avatar, id: :incident_attachment_avatar %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

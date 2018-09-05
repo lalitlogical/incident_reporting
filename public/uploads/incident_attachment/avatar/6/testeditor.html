@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    textarea {
+    	margin: 0px;
+   height: 458px;
+    width: 775px;
+    }
+  </style>
+</head>
+<body>
+
+<textarea id='code'>
+	
+	
+
+</textarea> 
+
+
+
+<button type="button" id='saveCode' onclick='sendData'>
+	save data
+</button>
+
+<!-- <script src="./ace.js" type="text/javascript" charset="utf-8"></script> -->
+<script>
+   
+
+    function sendData(){
+
+    	var code = document.getElementById('code').html;
+
+    	var xhttp = new XMLHttpRequest();
+    	xhttp.open("POST", "localhost:3002/problems/test_code_snippet", code);
+    	xhttp.send();
+    	
+
+    }
+</script>
+
+</body>
+</html>

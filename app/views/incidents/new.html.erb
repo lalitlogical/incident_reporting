@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4> Lincoln High School </h4>
+    <p> Incident Reporting Page </p><br><br>
+
+    <%= render 'form', incident: @incident %> <br>
+    <%= link_to 'Or Submit Detailed Report', detailed_incidents_path %>
+  </div>
+</div>
